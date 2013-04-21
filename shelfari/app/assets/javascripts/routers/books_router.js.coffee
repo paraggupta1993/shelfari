@@ -1,19 +1,23 @@
 #alert 'router'
 class App.Routers.Books extends Backbone.Router
-    initialize: (options) ->
+    initialize: () ->
+        @books = new App.Collections.Books
         #alert 'router initialized !'
     routes: 
-        '/home/index' : 'index'
-        'home/index'  : 'index'
-        '/index'      : 'index'
-        'index'       : 'index'
+       # '/index'      : 'index'
+       # 'index'       : 'index'
         ''            : 'index'
+        'index'       : 'index'
+        'new' : 'new'
+    new : ->
+        alert 'In books function'
+        @new_view = new App.Views.BooksNewView collection : @books
+
     index: ->
         #alert 'url catched... will fetch the objects'
-        books = new App.Collections.Books
         #don't know what the below line does.
         #alert "Fetching the objects"
-        books.fetch()
+        @books.fetch()
         ###
         success: (collection) ->
                 editor.log "There are now #{collection.length} books in our collection."
@@ -21,5 +25,5 @@ class App.Routers.Books extends Backbone.Router
   	        error: (collection, response) ->
                 editor.log "Server says #{response.status}."
         ###
-        @book_index = new App.Views.BooksIndex collection:books
+        @book_index = new App.Views.BooksIndex collection: @books
 

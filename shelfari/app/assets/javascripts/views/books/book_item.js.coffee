@@ -22,5 +22,5 @@ class App.Views.BooksItem extends Backbone.View
 
     render: ->
         #alert 'book item render function'
-        @$el.html @template @model.toJSON()
+        @$el.html @template( @model.toJSON())
         @

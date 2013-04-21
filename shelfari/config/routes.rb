@@ -3,7 +3,7 @@ App::Application.routes.draw do
   get "home/edit_book"
   get "home/new_book"
   get "home/index"
-
+  post "home/index"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -15,7 +15,7 @@ class App.Views.BooksIndex extends Backbone.View
 
   render: ->
     #alert "rendering book-index"
-    @$el.append @template()
+    @$el.html @template()
     #returning this. @ is alias for 'this' in coffee
     return this
 

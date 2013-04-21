@@ -11,7 +11,7 @@ class App.Views.BooksNewView extends Backbone.View
 
  initialize: ->
    _.bindAll(this)
-   alert 'New book init function'
+   #alert 'New book init function'
    @render()
 
  render: ->
@@ -30,4 +30,4 @@ class App.Views.BooksNewView extends Backbone.View
          success: (post) =>
            @model = post
            #window.location.hash = "/#{@model.id}"
-           window.location.hash = ""
+           window.location.hash = ''

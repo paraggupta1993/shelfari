@@ -1,11 +1,13 @@
 #This is a comment 
 class App.Views.BooksItem extends Backbone.View
-    template : JST['/books/book']
-    template : JST['
+    template : JST['views/books/book']
+    
+    el : '#app'
+    
     events:
         "click .destroy" : "destroy"
-    
     tagName: "tr"
+    
     initialize: (options) ->
         _.bindAll(this)
         alert 'Book item initialized'
@@ -17,6 +19,6 @@ class App.Views.BooksItem extends Backbone.View
         return false
 
     render: ->
-        alert 'book item render function'
-        @$el.html @template @model.toJSON()
+        #alert 'book item render function'
+        @$el.append @template @model.toJSON()
         return this

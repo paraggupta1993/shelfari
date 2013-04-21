@@ -4,7 +4,7 @@ window.App =
   Views: {}
   Routers: {}
   initialize: -> 
-    alert 'Hello from Backbone!'
+    #alert 'Hello from Backbone!'
     new App.Routers.Books
     Backbone.history.start() 
 

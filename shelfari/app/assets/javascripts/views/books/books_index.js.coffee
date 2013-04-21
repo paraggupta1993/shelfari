@@ -3,18 +3,21 @@
 ##= require ./book_item
 class App.Views.BooksIndex extends Backbone.View
   #This is the template (layout) our backbone view would use.
-  template: JST['/books/index']
+  template: JST['views/books/index']
+
   el : '#app'
+
   initialize : (options) ->
+    _.bindAll( this )
     alert 'initializer of booksindex'
     @render()
     @addAll()
 
   render: ->
     alert "rendering book-index"
-    @$el.html @template
+    @$el.append @template
     #returning this. @ is alias for 'this' in coffee
-    @
+    return this
 
   addAll: ->
     alert "adding all"

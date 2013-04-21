@@ -29,4 +29,5 @@ class App.Views.BooksNewView extends Backbone.View
    @collection.create model,
          success: (post) =>
            @model = post
-           window.location.hash = "/#{@model.id}"
+           #window.location.hash = "/#{@model.id}"
+           window.location.hash = ""

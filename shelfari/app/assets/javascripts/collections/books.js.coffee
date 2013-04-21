@@ -6,4 +6,4 @@ class App.Collections.Books extends Backbone.Collection
   url : '/home/index'
 
   initialize : ->
-    alert "Pokemon !"
+    alert "Collection initialized!"

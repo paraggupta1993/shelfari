@@ -3,28 +3,30 @@
 ##= require ./book_item
 class App.Views.BooksIndex extends Backbone.View
   #This is the template (layout) our backbone view would use.
-  template: JST['views/books/index']
+  template: JST['views/books/book_index']
 
   el : '#app'
 
   initialize : (options) ->
     _.bindAll( this )
-    alert 'initializer of booksindex'
+    #alert 'initializer of booksindex'
     @render()
     @addAll()
 
   render: ->
-    alert "rendering book-index"
+    #alert "rendering book-index"
     @$el.append @template
     #returning this. @ is alias for 'this' in coffee
     return this
 
   addAll: ->
-    alert "adding all"
+    #Try to find a workaround, here jquery race situation occurs. the 'table' is rendered with jquery in the above render function. The same 'table' will be used in addOne function. If it doesnot load in time, the books won't be added. 
+
+    alert "Wait 2 secs."
     @collection.forEach( @addOne , @ )
   
   addOne:(book) ->
-    alert "adding one"
+    #alert "adding one"
     @view = new App.Views.BooksItem( { model : book })
-    @$el.find('tbody').append @view.render().el 
-
+    #@$el.find('tbody').append @view.render().el 
+    $('#bookstable').append @view.render().el 

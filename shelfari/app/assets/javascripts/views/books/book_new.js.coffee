@@ -27,7 +27,7 @@ class App.Views.BooksNewView extends Backbone.View
    status = $('#status').val()
    model = new App.Models.Book({ name: name, author: author , status : status})
    @collection.create model,
-         success: (post) =>
-           @model = post
+         success: (book) =>
+           @model = book
            #window.location.hash = "/#{@model.id}"
            window.location.hash = ''

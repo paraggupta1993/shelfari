@@ -27,6 +27,6 @@ class App.Views.BooksIndex extends Backbone.View
   
   addOne:(book) ->
     #alert "adding one"
-    @view = new App.Views.BooksItem( { model : book })
+    @view = new App.Views.BooksItem( { model : book } )
     #@$el.find('tbody').append @view.render().el 
     $('#bookstable').append @view.render().el 

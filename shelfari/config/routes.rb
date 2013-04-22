@@ -4,6 +4,11 @@ App::Application.routes.draw do
   get "home/new_book"
   get "home/index"
   post "home/index"
+  put "home/index"
+  match '(:controller)/(:action)/(:id)' => '(:controller)/(:action)'
+  put "home/index/:id"
+  get "home/index/:id" 
+  delete "home/index"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -1,3 +1,3 @@
 class Book < ActiveRecord::Base
-    attr_accessible :name, :author, :status
+    attr_accessible :id , :name, :author, :status
 end

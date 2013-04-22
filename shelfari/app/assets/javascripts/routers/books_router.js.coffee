@@ -9,9 +9,21 @@ class App.Routers.Books extends Backbone.Router
         ''            : 'index'
         'index'       : 'index'
         'new' : 'new'
+        ":id"         : "show"
+        ":id/edit"    : "edit"
+        ".*"          : "index"
+
+
     new : ->
         alert 'In books function'
         @new_view = new App.Views.BooksNewView collection : @books
+
+    edit : (id ) ->
+        alert 'Editing route taken'
+        alert id 
+        book = @books.get(id)
+        alert book
+        @edit_view = new App.Views.BooksEditView  model: book
 
     index: ->
         #alert 'url catched... will fetch the objects'

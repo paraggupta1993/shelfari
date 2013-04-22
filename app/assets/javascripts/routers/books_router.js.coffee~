@@ -1,0 +1,18 @@
+#alert 'router'
+class App.Routers.Books extends Backbone.Router
+    initialize: (options) ->
+        alert 'router initialized !'
+    routes: 
+        '/home/index' : 'index'
+        '/index' : 'index'
+        'index' : 'index'
+        'home/index' : 'index'
+        ''      : 'index'
+    index: ->
+        
+        books = new App.Collections.Books
+        #don't know what the below line does.
+        new App.Views.BooksIndex collection: books
+        alert "Fetching the objects"
+        books.fetch()
+          

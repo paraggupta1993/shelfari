@@ -8,21 +8,20 @@ class App.Routers.Books extends Backbone.Router
        # 'index'       : 'index'
         ''            : 'index'
         'index'       : 'index'
-        'new' : 'new'
-        ":id"         : "show"
+        'new'         : 'new'
         ":id/edit"    : "edit"
         ".*"          : "index"
 
 
     new : ->
-        alert 'In books function'
+        #alert 'In books function'
         @new_view = new App.Views.BooksNewView collection : @books
 
     edit : (id ) ->
-        alert 'Editing route taken'
-        alert id 
+        #alert 'Editing route taken'
+        #alert id 
         book = @books.get(id)
-        alert book
+        #alert book
         @edit_view = new App.Views.BooksEditView  model: book
 
     index: ->

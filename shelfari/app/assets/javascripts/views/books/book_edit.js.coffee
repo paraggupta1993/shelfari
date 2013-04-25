@@ -14,7 +14,7 @@ class App.Views.BooksEditView extends Backbone.View
     @$el.html @template(@model.toJSON())
     @
 
-  update: (e) ->
+  update:(e) ->
     e.preventDefault()
     e.stopPropagation()
     name = $('#title').val()

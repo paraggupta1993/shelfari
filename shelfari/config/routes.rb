@@ -1,14 +1,17 @@
 App::Application.routes.draw do
-  get "home/add_book"
-  get "home/edit_book"
-  get "home/new_book"
+  #put "home/index/(:id)" => 'home#update'
+  #put '/(:controller)/(:action)/(:id)'  => {  :action => "new_book" , :controller => "home" }
+  put '/home/index/(:id)'  => 'home#update'
   get "home/index"
   post "home/index"
-  put "home/index"
-  match '(:controller)/(:action)/(:id)' => '(:controller)/(:action)'
-  put "home/index/:id"
-  get "home/index/:id" 
-  delete "home/index"
+
+  #the below line catches "home/index/1" 
+  #put 'home/index/(:id)'  =>  "/(:controller)#update"
+
+  #match '/(:controller)/(:action)/(:id)' => { :action => "update" , :controller=>"home" }
+  #get "home/index/:id" 
+  
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

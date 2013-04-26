@@ -33,15 +33,18 @@ class App.Views.BooksIndex extends Backbone.View
     temp = $('#bookstable').append @view.render().el
 
   isMatch:(  book  )->
-    if @search_val == book.get("name")
-        @addOne book 
+    #if @search_val == book.get("name")
+    #    @addOne book 
+    ret_val = book.get("name").search @search_val
+    if ret_val != -1 
+       @addOne book 
     
   search:(e) ->
     return if e.keyCode != 13 
     @search_val = @$('#search').val()
     return if @search_val == "" 
     $('#bookstable').empty()
-    alert "Table should be empty"
+    #alert "Table should be empty"
     @collection.each( @isMatch , @ ) 
         
 

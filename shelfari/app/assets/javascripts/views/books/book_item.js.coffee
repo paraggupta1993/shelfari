@@ -5,8 +5,8 @@ class App.Views.BooksItem extends Backbone.View
     
     #el : '#app'
     
-    #events:
-    #    "click .destroy" : "destroy"
+    events:
+        "click .destroy" : "destroy"
     
     tagName : "tr"
     

@@ -12,9 +12,10 @@ class App.Routers.Books extends Backbone.Router
         ":id/edit"    : "edit"
         ".*"          : "index"
 
-
     new: ->
         #alert 'In books function'
+        if @new_view
+          @new_view.destroy()
         @new_view = new App.Views.BooksNewView collection : @books
 
     edit: (id ) ->

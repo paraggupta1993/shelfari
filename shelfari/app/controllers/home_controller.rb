@@ -28,12 +28,12 @@ class HomeController < ApplicationController
     @book = Book.new( :name => 'new_book', :author => 'parag', :status => false  )
     @book.save()
   end 
-  def delete
-    #for testing purpose
-    @book = Book.new( :name => 'delete_book', :author => 'parag', :status => false  )
-    @book.save()
-
+  
+  
+  def destroy
+    Book.destroy( params[:id])
   end 
+ 
   def add_book
   end 
   

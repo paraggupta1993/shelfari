@@ -18,6 +18,8 @@ class App.Views.BooksNewView extends Backbone.View
    @$el.html @template()
    @ 
 
+ destroy: ->
+   @undelegateEvents();
  save: (e) ->
    alert 'Saving book'
    e.preventDefault()

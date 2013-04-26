@@ -7,14 +7,17 @@ class App.Views.BooksEditView extends Backbone.View
   events:
     "submit #edit-book" : "update"
 
-  initialize: (options )->
+  initialize:(options )->
+    #alert "initiliaze"
     @render()
 
   render: ->
+    #alert "rendering"
     @$el.html @template(@model.toJSON())
     @
 
   update:(e) ->
+    #alert "Updating"
     e.preventDefault()
     e.stopPropagation()
     name = $('#title').val()
@@ -24,3 +27,12 @@ class App.Views.BooksEditView extends Backbone.View
                 success: (post) =>
                     @model = post
                     window.location.hash = "")
+
+  destroy:->
+    #alert "destroying previous"
+    this.undelegateEvents();
+    #@$el.removeData().unbind(); 
+    #@remove();  
+    #Backbone.View.prototype.remove.call(this);
+    #@unbind()
+

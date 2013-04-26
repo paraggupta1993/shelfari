@@ -2,6 +2,7 @@ App::Application.routes.draw do
   #put "home/index/(:id)" => 'home#update'
   #put '/(:controller)/(:action)/(:id)'  => {  :action => "new_book" , :controller => "home" }
   put '/home/index/(:id)'  => 'home#update'
+  delete '/home/index/(:id)'  => 'home#delete'
   get "home/index"
   post "home/index"
 

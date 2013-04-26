@@ -31,13 +31,17 @@ class HomeController < ApplicationController
   
   
   def destroy
-    Book.destroy( params[:id])
+    #@book = Book.new( :name => 'destroy_book', :author => 'parag', :status => false  )
+    #@book.save()
+    Book.destroy(params[:id])
   end 
  
   def add_book
   end 
   
   def update
+    #@book = Book.new( :name => 'update_book', :author => 'parag', :status => false  )
+    #@book.save()
     #for testing purpose
       @book = Book.find(params[:id])
       

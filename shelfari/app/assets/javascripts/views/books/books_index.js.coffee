@@ -28,12 +28,21 @@ class App.Views.BooksIndex extends Backbone.View
     @collection.forEach( @addOne , @ )
   
   addOne:(book) ->
-    #alert "adding one"
     @view = new App.Views.BooksItem( { model : book } )
     #@$el.find('tbody').append @view.render().el 
     temp = $('#bookstable').append @view.render().el
 
+  isMatch:(  book  )->
+    if @search_val == book.get("name")
+        @addOne book 
+    
   search:(e) ->
     return if e.keyCode != 13 
-    alert "Searching"
+    @search_val = @$('#search').val()
+    return if @search_val == "" 
+    $('#bookstable').empty()
+    alert "Table should be empty"
+    @collection.each( @isMatch , @ ) 
+        
 
+    

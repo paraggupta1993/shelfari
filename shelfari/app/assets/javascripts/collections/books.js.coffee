@@ -7,4 +7,3 @@ class App.Collections.Books extends Backbone.Collection
 
   initialize : ->
     #alert "fetching"
-    #this.deferred = this.fetch()

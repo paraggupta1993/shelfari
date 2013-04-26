@@ -4,6 +4,9 @@
 class App.Views.BooksIndex extends Backbone.View
   #This is the template (layout) our backbone view would use.
   template: JST['views/books/book_index']
+  
+  events:
+    'keypress #search' : 'search'
 
   el : '#app'
 
@@ -21,15 +24,16 @@ class App.Views.BooksIndex extends Backbone.View
     return this
 
   addAll:->
-    #Try to find a workaround, here jquery race situation occurs. the 'table' is rendered with jquery in the above render function. The same 'table' will be used in addOne function. If it doesnot load in time, the books won't be added. 
     #alert "addall"
-    # The above issue is resolved using "until" loop in addOne function 
-    
     @collection.forEach( @addOne , @ )
   
   addOne:(book) ->
     #alert "adding one"
     @view = new App.Views.BooksItem( { model : book } )
     #@$el.find('tbody').append @view.render().el 
-    until temp 
-      temp = $('#bookstable').append @view.render().el
+    temp = $('#bookstable').append @view.render().el
+
+  search:(e) ->
+    return if e.keyCode != 13 
+    alert "Searching"
+

@@ -21,7 +21,7 @@ class App.Views.BooksNewView extends Backbone.View
  destroy: ->
    @undelegateEvents();
  save: (e) ->
-   alert 'Saving book'
+   #alert 'Saving book'
    e.preventDefault()
    e.stopPropagation()
    name = $('#title').val()

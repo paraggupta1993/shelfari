@@ -6,4 +6,5 @@ class App.Collections.Books extends Backbone.Collection
   url : '/home/index'
 
   initialize : ->
-    #alert "Collection initialized!"
+    #alert "fetching"
+    #this.deferred = this.fetch()

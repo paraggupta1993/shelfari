@@ -15,18 +15,21 @@ class App.Views.BooksIndex extends Backbone.View
 
   render: ->
     #alert "rendering book-index"
-    @$el.html @template()
+    #$(this.el).html( @template()).done( @addAll )
+    $(this.el).html(@template())
     #returning this. @ is alias for 'this' in coffee
     return this
 
-  addAll: ->
+  addAll:->
     #Try to find a workaround, here jquery race situation occurs. the 'table' is rendered with jquery in the above render function. The same 'table' will be used in addOne function. If it doesnot load in time, the books won't be added. 
-
-    alert "Wait 2 secs."
+    #alert "addall"
+    # The above issue is resolved using "until" loop in addOne function 
+    
     @collection.forEach( @addOne , @ )
   
   addOne:(book) ->
     #alert "adding one"
     @view = new App.Views.BooksItem( { model : book } )
     #@$el.find('tbody').append @view.render().el 
-    $('#bookstable').append @view.render().el 
+    until temp 
+      temp = $('#bookstable').append @view.render().el

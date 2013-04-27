@@ -42,7 +42,6 @@ class App.Views.BooksIndex extends Backbone.View
   search:(e) ->
     return if e.keyCode != 13 
     @search_val = @$('#search').val()
-    return if @search_val == "" 
     $('#bookstable').empty()
     #alert "Table should be empty"
     @collection.each( @isMatch , @ ) 

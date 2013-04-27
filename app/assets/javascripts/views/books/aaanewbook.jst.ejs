@@ -13,8 +13,14 @@
 
   <div class="field">
     <label for="status"> status:</label>
-    <input type="text" name="status" id="status">
-  </div>
+    <!-- <input type="text" name="status" id="status"> -->
+    <select name="status" id="status">
+    <option value="0" selected >Not Read</option>
+    <option value="1">Read</option>
+    </select>
+    <!-- <input type="radio" name="status" id='status_read' checked value="0" />Not Read
+    <input type="radio" name="status" id='status_nread' value="1" />Read -->
+  </div> 
   
   <div class="actions">
     <input type="submit" value="Create Book" />
@@ -22,4 +28,4 @@
 
 </form>
 
-<a href="#index">Back</a>
+<a href="#">Back</a>

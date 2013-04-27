@@ -1,15 +1,21 @@
 <div id="notice"> </div>
 <a href="#new">New Book</a>
-<a href="#index"> Back </a>
+</br>
+<script>
+function search_back() {
+  window.location.hash = '#index';
+}
+</script>
 <label>Search : <input id="search" /></label>
+<a href="#" onclick='search_back()' > See All </a>
 
-<table>
+<table border='1'>
   <tbody id='bookstable'>
     <tr>
      <th> Id </th>
      <th>Name </th>
      <th>Author </th>
-     <th>Status</th>
+     <th>Read Status</th>
      <th></th>
      <th></th>
     </tr>

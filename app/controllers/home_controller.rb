@@ -1,14 +1,16 @@
 class HomeController < ApplicationController
   def index
      
-     if( params.has_key?(:name) && params.has_key?(:author) && params.has_key?(:status))
+     if( params.has_key?(:name) && params.has_key?(:author))
       #If new books creation request has come.
       
       #Extract parameters
       @name = params[:name]   
       @author = params[:author]
+      @status = false
       @status = false if ( params[:status] == "0" ) 
       @status = true if ( params[:status] == "1")
+      
       
       #some checking constraints
       #put in database
@@ -51,7 +53,6 @@ class HomeController < ApplicationController
       @status = true if ( params[:status] == "1")
       @book.update_attributes( name: params[:name], author: params[:author] , status:  @status  )
       #@book.save()
-      redirect_to :action => 'index' , :notice => "Success"
-
+      redirect_to ({ :action => 'index', :status => 303 , :controller => 'home', :notice => "Success" })
   end
 end

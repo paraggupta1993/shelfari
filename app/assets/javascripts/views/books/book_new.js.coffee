@@ -1,11 +1,13 @@
 #comment
 class App.Views.BooksNewView extends Backbone.View
  
+ #parent element
  el: '#app'
  #A funny thing : allows give lexographically smaller name to your template than the files which use that template. 
  #
  template: JST['views/books/aaanewbook']
 
+ #events that this object will catch 
  events:
    "submit #new-book": "save"
 
@@ -20,6 +22,8 @@ class App.Views.BooksNewView extends Backbone.View
 
  destroy: ->
    @undelegateEvents();
+
+ #this function saves the new model in BAckbone and sends a POST request to the server 
  save: (e) ->
    #alert 'Saving book'
    e.preventDefault()
